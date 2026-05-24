@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import agrosmartHero from '../assets/agrosmart_hero.png';
+import esp32Sensor from '../assets/esp32_sensor.png';
 import './LandingPage.css';
+
 
 export default function LandingPage({ onExplore, onLoginClick }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -73,7 +76,7 @@ export default function LandingPage({ onExplore, onLoginClick }) {
       {/* Hero Section Grid */}
       <section className="hero-section">
         {/* Left Column (Main Promotion with Sprout Sprout Image Background) */}
-        <div className="hero-left-card" style={{ backgroundImage: `linear-gradient(rgba(5, 11, 7, 0.75), rgba(5, 11, 7, 0.9)), url('./agrosmart_hero.png')` }}>
+        <div className="hero-left-card" style={{ backgroundImage: `linear-gradient(rgba(5, 11, 7, 0.75), rgba(5, 11, 7, 0.9)), url('${agrosmartHero}')` }}>
           <div className="hero-badge">
             <span className="flag-emoji">🇨🇴</span>
             <span>Tecnología agrícola diseñada para el campo colombiano.</span>
@@ -144,7 +147,7 @@ export default function LandingPage({ onExplore, onLoginClick }) {
           </div>
 
           <div className="hardware-showcase">
-            <img src="./esp32_sensor.png" alt="ESP32 hardware node" className="hardware-image" />
+            <img src={esp32Sensor} alt="ESP32 hardware node" className="hardware-image" />
             <div className="hardware-details">
               <h4>Tecnología IoT con ESP32</h4>
               <p>Sensores de humedad y temperatura conectados para decisiones precisas y oportunas.</p>
