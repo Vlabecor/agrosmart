@@ -1,0 +1,440 @@
+@import 'leaflet/dist/leaflet.css';
+
+/* ============================================================
+   MonitoreoView — AgroSmart
+   Glassmorphism dark-green theme
+   ============================================================ */
+
+/* ── Layout principal ── */
+.monitoreo-view {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Encabezado ── */
+.monitoreo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.monitoreo-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem;
+}
+
+.monitoreo-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Fila de estadísticas ── */
+.monitoreo-stats-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.monitoreo-stat {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+.monitoreo-stat.warning {
+  border-color: rgba(249, 115, 22, 0.3);
+}
+
+.monitoreo-stat.critica {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.monitoreo-stat-val {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.monitoreo-stat.warning .monitoreo-stat-val {
+  color: #fb923c;
+}
+
+.monitoreo-stat.critica .monitoreo-stat-val {
+  color: #f87171;
+}
+
+.monitoreo-stat-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ── Cuerpo principal (mapa + panel lateral) ── */
+.monitoreo-body {
+  display: flex;
+  gap: 1.25rem;
+  flex: 1;
+  min-height: 420px;
+}
+
+/* ── Tarjeta del mapa ── */
+.monitoreo-map-card {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.monitoreo-map {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border-radius: 16px;
+}
+
+/* ── Leyenda del mapa ── */
+.map-legend {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(5, 11, 7, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  z-index: 500;
+}
+
+.map-legend-item {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ── Panel lateral ── */
+.monitoreo-side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.monitoreo-side-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ── Lista de sensores ── */
+.sensor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.sensor-card {
+  width: 100%;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.7rem 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.sensor-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(70, 180, 100, 0.3);
+}
+
+.sensor-card.active {
+  background: rgba(70, 180, 100, 0.1);
+  border-color: var(--primary);
+}
+
+.sensor-card.critica {
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.sensor-card.warning {
+  border-color: rgba(249, 115, 22, 0.35);
+}
+
+.sensor-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sensor-emoji {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.sensor-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sensor-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sensor-finca {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Dot de estado del sensor ── */
+.sensor-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sensor-status-dot.optimo {
+  background: #46b464;
+  box-shadow: 0 0 6px #46b464;
+}
+
+.sensor-status-dot.warning {
+  background: #f97316;
+  box-shadow: 0 0 6px #f97316;
+}
+
+.sensor-status-dot.critica {
+  background: #ef4444;
+  box-shadow: 0 0 6px #ef4444;
+}
+
+/* ── Métricas del sensor ── */
+.sensor-metrics {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ── Barra de batería ── */
+.sensor-battery-bar {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.sensor-battery-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+/* ── Panel de detalle del sensor ── */
+.monitoreo-detail {
+  padding: 1.25rem 1.5rem;
+}
+
+.monitoreo-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.monitoreo-detail-emoji {
+  font-size: 2rem;
+}
+
+.monitoreo-detail-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.2rem;
+}
+
+.monitoreo-detail-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.monitoreo-detail-badge {
+  margin-left: auto;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.monitoreo-detail-badge.optimo {
+  background: rgba(70, 180, 100, 0.15);
+  color: #6fd48a;
+  border: 1px solid rgba(70, 180, 100, 0.3);
+}
+
+.monitoreo-detail-badge.warning {
+  background: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.monitoreo-detail-badge.critica {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ── Grid de detalle ── */
+.monitoreo-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.detail-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.detail-val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.detail-opt {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ============================================================
+   Marcador Leaflet personalizado
+   ============================================================ */
+.map-marker-pin {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2.5px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 15, 10, 0.85);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.map-marker-pin:hover {
+  transform: scale(1.12);
+}
+
+/* ============================================================
+   Overrides de Leaflet — Popup
+   ============================================================ */
+.leaflet-popup-content-wrapper {
+  background: rgba(8, 20, 12, 0.95) !important;
+  border: 1px solid rgba(70, 180, 100, 0.3) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(8, 20, 12, 0.95) !important;
+}
+
+.map-popup {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #c8ddd0;
+}
+
+.map-popup strong {
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .monitoreo-body {
+    flex-direction: column;
+  }
+
+  .monitoreo-side {
+    width: 100%;
+    max-height: 220px;
+  }
+
+  .sensor-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .monitoreo-view {
+    padding: 1rem;
+  }
+
+  .monitoreo-detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

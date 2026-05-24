@@ -1,0 +1,389 @@
+/* ============================================================
+   ReportesView.css — AgroSmart · Glassmorphism Dark-Green Theme
+   ============================================================ */
+
+/* ── Page layout ─────────────────────────────────────────── */
+.reportes-view {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* ── Page header ─────────────────────────────────────────── */
+.rpt-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.rpt-page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem;
+}
+
+.rpt-page-sub {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.rpt-header-badge {
+  display: flex;
+  align-items: center;
+}
+
+.rpt-badge--premium {
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(245, 158, 11, 0.2),
+    rgba(251, 191, 36, 0.1)
+  );
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ── Stats row ───────────────────────────────────────────── */
+.rpt-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.rpt-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.25rem;
+}
+
+.rpt-stat--green .rpt-stat-icon { color: #46b464; }
+.rpt-stat--blue  .rpt-stat-icon { color: #60a5fa; }
+.rpt-stat--purple .rpt-stat-icon { color: #a78bfa; }
+
+.rpt-stat-icon {
+  font-size: 1.6rem;
+}
+
+.rpt-stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.rpt-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Section ─────────────────────────────────────────────── */
+.rpt-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rpt-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rpt-section-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.rpt-section-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ── Report-type cards grid ──────────────────────────────── */
+.rpt-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.rpt-type-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.25rem;
+  border-radius: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 0 0 transparent;
+}
+
+.rpt-type-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Colour-accent left borders */
+.rpt-type--green  { border-left: 3px solid #46b464; }
+.rpt-type--blue   { border-left: 3px solid #3b82f6; }
+.rpt-type--teal   { border-left: 3px solid #14b8a6; }
+.rpt-type--cyan   { border-left: 3px solid #06b6d4; }
+.rpt-type--gold   { border-left: 3px solid #f59e0b; }
+
+/* Premium card overlay */
+.rpt-type--premium {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 158, 11, 0.08),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+/* Premium badge (absolute) */
+.rpt-premium-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Icon wrapper */
+.rpt-type-icon-wrap {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rpt-type-icon {
+  font-size: 1.3rem;
+}
+
+.rpt-type-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.rpt-type-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.rpt-type-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.rpt-type-period {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ── Generate buttons ────────────────────────────────────── */
+.rpt-btn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.rpt-btn--idle {
+  background: rgba(70, 180, 100, 0.15);
+  color: #46b464;
+  border: 1px solid rgba(70, 180, 100, 0.3);
+}
+
+.rpt-btn--idle:hover {
+  background: rgba(70, 180, 100, 0.25);
+}
+
+.rpt-btn--generating {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  cursor: wait;
+}
+
+.rpt-btn--done {
+  background: rgba(70, 180, 100, 0.2);
+  color: #6fd48a;
+  border: 1px solid rgba(70, 180, 100, 0.4);
+}
+
+/* ── Spinner ─────────────────────────────────────────────── */
+.rpt-spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(96, 165, 250, 0.3);
+  border-top-color: #60a5fa;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.rpt-spinner--sm {
+  width: 10px;
+  height: 10px;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ── History table ───────────────────────────────────────── */
+.rpt-table-card {
+  overflow: hidden;
+}
+
+.rpt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.rpt-table thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.rpt-table-row:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.rpt-table-row:hover {
+  background: rgba(70, 180, 100, 0.05);
+}
+
+.rpt-table td {
+  padding: 0.7rem 1rem;
+  color: var(--text-secondary);
+  vertical-align: middle;
+}
+
+.rpt-td-date {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.rpt-type-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.rpt-td-crop {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.rpt-crop-emoji {
+  font-size: 1rem;
+}
+
+.rpt-td-size {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.rpt-status--ok {
+  color: #46b464;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* ── Download button ─────────────────────────────────────── */
+.rpt-dl-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.rpt-dl-btn:hover {
+  background: rgba(70, 180, 100, 0.15);
+  color: #46b464;
+  border-color: rgba(70, 180, 100, 0.4);
+}
+
+.rpt-dl-btn--done {
+  background: rgba(70, 180, 100, 0.15);
+  color: #46b464;
+  border-color: rgba(70, 180, 100, 0.3);
+}
+
+.rpt-dl-btn:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .rpt-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .rpt-stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .reportes-view {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,124 @@
+.chart-container {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+}
+
+.line-chart-svg, .bar-chart-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.grid-line {
+  stroke: rgba(0, 230, 118, 0.05);
+  stroke-width: 1;
+}
+
+.grid-axis-text {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  fill: var(--text-muted);
+  font-weight: 500;
+}
+
+.text-right {
+  text-anchor: end;
+}
+
+.chart-point {
+  transition: r var(--transition-fast), fill var(--transition-fast);
+  cursor: pointer;
+}
+
+.chart-tooltip rect {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.tooltip-text {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  fill: #fff;
+}
+
+/* Donut Chart styling */
+.donut-chart-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 16px;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.donut-svg-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.donut-chart-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.donut-segment {
+  transition: stroke-dashoffset var(--transition-slow);
+}
+
+.donut-center-text {
+  transform: translateY(2px);
+}
+
+.donut-number {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  fill: #fff;
+}
+
+.donut-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  fill: var(--text-secondary);
+  font-weight: 500;
+}
+
+.donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot-bajo { background-color: #ff5252; }
+.dot-medio { background-color: #00e676; }
+.dot-alto { background-color: #2979ff; }
+
+.legend-name {
+  min-width: 90px;
+}
+
+.legend-val {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Bar Chart styling */
+.chart-bar {
+  transition: height var(--transition-normal), y var(--transition-normal), fill var(--transition-fast);
+}
