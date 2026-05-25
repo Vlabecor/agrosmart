@@ -1089,20 +1089,25 @@
   .bento-crops-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .bento-card-iot-banner {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .iot-banner-bg-wrap {
+    position: relative;
+    height: 250px;
+    width: 100%;
+    order: 2; /* Imagen debajo del texto */
+  }
   .iot-banner-bg-img {
-    object-position: left center; /* Anclar la imagen a la izquierda en móviles según lo solicitado */
+    object-fit: contain;
+    object-position: center; /* Centrar la imagen pequeña */
   }
   .iot-banner-overlay {
-    /* Gradiente ligeramente más oscuro en móvil para que contraste con el texto si ocupa todo el ancho */
-    background: linear-gradient(
-      120deg,
-      rgba(2, 8, 4, 0.95) 0%,
-      rgba(2, 8, 4, 0.85) 45%,
-      rgba(2, 8, 4, 0.40) 80%,
-      rgba(2, 8, 4, 0.20) 100%
-    );
+    display: none; /* No se necesita degradado si el texto no está sobre la imagen */
   }
   .iot-banner-content {
+    order: 1; /* Texto arriba */
     padding: 1.5rem; /* Ajustar padding en móviles para que no se corran los textos */
     gap: 0.8rem;
   }
