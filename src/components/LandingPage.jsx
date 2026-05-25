@@ -77,9 +77,6 @@ export default function LandingPage({ onExplore, onLoginClick }) {
           <button className="auth-btn-login" onClick={handleLoginClick}>
             <span className="user-icon">👤</span> Iniciar sesión
           </button>
-          <button className="auth-btn-start btn-primary" onClick={handleLoginClick}>
-            Comienza gratis
-          </button>
         </div>
 
         {/* Mobile menu toggle */}
@@ -172,9 +169,10 @@ export default function LandingPage({ onExplore, onLoginClick }) {
         </div>
 
         {/* Right Column: Premium Smartphone Showcase */}
-        <div className="hero-right-card-premium" style={{ backgroundImage: `url('${agroBg}')` }}>
-          {/* Overlay oscuro para legibilidad */}
-          <div className="hero-right-overlay"></div>
+        <div className="hero-right-card-premium">
+          {/* Imagen de fondo nativa (Campesino + Celular) */}
+          <img src={agroBg} alt="Campesino y celular AgroSmart" className="hero-right-bg-image" />
+          <div className="hero-right-overlay-light"></div>
           
           {/* Floating UI Elements matching the mockup */}
           <div className="floating-ui-container">
