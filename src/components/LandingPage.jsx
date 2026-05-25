@@ -5,7 +5,7 @@ import esp32Sensor from '../assets/esp32_sensor.png';
 import agroBg from '../assets/agro_bg.png';
 import './LandingPage.css';
 
-export default function LandingPage({ onExplore, onLoginClick }) {
+export default function LandingPage({ onExplore, onLoginClick, onCropSelect }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -22,13 +22,14 @@ export default function LandingPage({ onExplore, onLoginClick }) {
   };
 
   const cultivosColombianos = [
-    { name: 'Café', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=180&auto=format&fit=crop&q=80' },
-    { name: 'Tomate', img: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=180&auto=format&fit=crop&q=80' },
-    { name: 'Aguacate', img: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=180&auto=format&fit=crop&q=80' },
-    { name: 'Maíz', img: 'https://images.unsplash.com/photo-1530071122408-db529f8a31c3?w=180&auto=format&fit=crop&q=80' },
-    { name: 'Papa', img: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=180&auto=format&fit=crop&q=80' },
-    { name: 'Cacao', img: 'https://images.unsplash.com/photo-1587132137056-bfbf0166836e?w=180&auto=format&fit=crop&amp;q=80' },
-    { name: 'Arroz', img: 'https://images.unsplash.com/photo-1536657464919-892534f60d6e?w=180&auto=format&fit=crop&q=80' }
+    { id: 'cafe',     name: 'Café',     img: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=300&auto=format&fit=crop&q=80' },
+    { id: 'tomate',   name: 'Tomate',   img: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300&auto=format&fit=crop&q=80' },
+    { id: 'aguacate', name: 'Aguacate', img: 'https://images.unsplash.com/photo-1560906446-da7c9cdf4eec?w=300&auto=format&fit=crop&q=80' },
+    { id: 'maiz',     name: 'Maíz',     img: 'https://images.unsplash.com/photo-1601593767086-bb5ee3b5a1d6?w=300&auto=format&fit=crop&q=80' },
+    { id: 'papa',     name: 'Papa',     img: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=300&auto=format&fit=crop&q=80' },
+    { id: 'banana',   name: 'Banano',   img: 'https://images.unsplash.com/photo-1551906994-efb6e9b54ebb?w=300&auto=format&fit=crop&q=80' },
+    { id: 'cacao',    name: 'Cacao',    img: 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=300&auto=format&fit=crop&q=80' },
+    { id: 'arroz',    name: 'Arroz',    img: 'https://images.unsplash.com/photo-1589361242929-0e8b3d0efc58?w=300&auto=format&fit=crop&q=80' }
   ];
 
   const climasColombia = [
@@ -49,8 +50,9 @@ export default function LandingPage({ onExplore, onLoginClick }) {
   ];
 
   return (
+    <div className="landing-page-root">
     <div className="landing-container animate-fade">
-      {/* ─── HEADER (Solo logo + menú hamburguesa general) ─── */}
+      {/* ─── HEADER (Solo logo, 'Beneficios' y menú hamburguesa) ─── */}
       <header className="landing-header">
         <div className="landing-brand" onClick={() => handleScrollTo('inicio')}>
           <div className="brand-logo-leaf">
@@ -67,31 +69,56 @@ export default function LandingPage({ onExplore, onLoginClick }) {
           </div>
         </div>
 
+        {/* Enlaces horizontales: solo Beneficios (visible en desktop) */}
+        <nav className="landing-desktop-nav">
+          <button className="nav-link-horizontal" onClick={() => handleScrollTo('beneficios')}>Beneficios</button>
+        </nav>
+
         {/* Único menú de navegación (Hamburguesa para todo tamaño de pantalla) */}
         <div className="landing-nav-general">
           <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu" aria-expanded={isMenuOpen}>
-            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2.5" fill="none">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-          
-          {isMenuOpen && (
-            <div className="landing-dropdown-menu animate-fade">
-              <button className="dropdown-item" onClick={() => handleScrollTo('inicio')}>🏠 Inicio</button>
-              <button className="dropdown-item" onClick={() => handleScrollTo('funciones')}>🛠️ Funciones</button>
-              <button className="dropdown-item" onClick={() => handleScrollTo('cultivos')}>🌱 Cultivos</button>
-              <button className="dropdown-item" onClick={() => handleScrollTo('beneficios')}>💎 Beneficios</button>
-              <button className="dropdown-item" onClick={() => handleScrollTo('contacto')}>📞 Contacto</button>
-              <div className="dropdown-divider"></div>
-              <button className="dropdown-item" onClick={handleLoginClick}>🔑 Iniciar Sesión</button>
-              <button className="dropdown-item" onClick={() => navigate('/register')}>📝 Registrarse</button>
-              <button className="dropdown-item highlight-btn" onClick={handleExplore}>🎯 Explorar App</button>
+            <div className={`hamburger-lines ${isMenuOpen ? 'open' : ''}`}>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
-          )}
+          </button>
         </div>
       </header>
+
+      {/* Backdrop y Side Drawer Overlay (Menu Hamburguesa) */}
+      {isMenuOpen && (
+        <div className="landing-backdrop" onClick={() => setIsMenuOpen(false)} />
+      )}
+      <aside className={`landing-drawer ${isMenuOpen ? 'open' : ''}`}>
+        <div className="drawer-header">
+          <div className="landing-brand" onClick={() => { handleScrollTo('inicio'); setIsMenuOpen(false); }}>
+            <div className="brand-logo-leaf">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                <path d="M2 22C2 22 6 18 12 18C18 18 22 22 22 22" stroke="#46b464" strokeWidth="2" strokeLinecap="round" />
+                <path d="M12 2C12 2 4 10 4 15C4 18.5 7 21 10.5 21C12 21 13 20.5 14 19.5" stroke="#46b464" strokeWidth="2" strokeLinecap="round" />
+                <path d="M12 2C12 2 20 10 20 15C20 18.5 17 21 13.5 21C12 21 11 20.5 10 19.5" fill="#46b464" opacity="0.85" />
+                <path d="M12 2V21" stroke="#2e7d32" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
+            <div className="brand-text-block">
+              <span className="brand-title">AGRO<span className="accent">SMART</span></span>
+            </div>
+          </div>
+          <button className="drawer-close" onClick={() => setIsMenuOpen(false)} aria-label="Cerrar menú">✕</button>
+        </div>
+        <nav className="drawer-nav">
+          <button className="drawer-item" onClick={() => { setIsMenuOpen(false); handleScrollTo('inicio'); }}>🏠 Inicio</button>
+          <button className="drawer-item" onClick={() => { setIsMenuOpen(false); handleScrollTo('funciones'); }}>🛠️ Funciones</button>
+          <button className="drawer-item" onClick={() => { setIsMenuOpen(false); handleScrollTo('cultivos'); }}>🌱 Cultivos</button>
+          <button className="drawer-item" onClick={() => { setIsMenuOpen(false); handleScrollTo('beneficios'); }}>💎 Beneficios</button>
+          <button className="drawer-item" onClick={() => { setIsMenuOpen(false); handleScrollTo('contacto'); }}>📞 Contacto</button>
+          <div className="drawer-divider"></div>
+          <button className="drawer-item" onClick={() => { setIsMenuOpen(false); handleLoginClick(); }}>🔑 Iniciar Sesión</button>
+          <button className="drawer-item" onClick={() => { setIsMenuOpen(false); navigate('/register'); }}>📝 Registrarse</button>
+          <button className="drawer-item highlight-btn" onClick={() => { setIsMenuOpen(false); handleExplore(); }}>🎯 Explorar App</button>
+        </nav>
+      </aside>
 
       {/* ─── HERO SECTION ─── */}
       <section className="hero-section" id="inicio">
@@ -201,7 +228,7 @@ export default function LandingPage({ onExplore, onLoginClick }) {
           
           <div className="bento-crops-grid">
             {cultivosColombianos.map((crop, idx) => (
-              <div key={idx} className="bento-crop-item" onClick={handleLoginClick}>
+              <div key={idx} className="bento-crop-item" onClick={() => onCropSelect ? onCropSelect(crop.id) : handleExplore()}>
                 <div className="bento-crop-img-wrap">
                   <img src={crop.img} alt={crop.name} className="bento-crop-img" />
                   <div className="bento-crop-overlay"></div>
@@ -211,7 +238,7 @@ export default function LandingPage({ onExplore, onLoginClick }) {
             ))}
             
             {/* Botón Mas Cultivos */}
-            <div className="bento-crop-item bento-crop-item--more" onClick={handleLoginClick}>
+            <div className="bento-crop-item bento-crop-item--more" onClick={handleExplore}>
               <div className="bento-crop-more-icon-wrap">
                 <span className="more-plus-icon">+</span>
               </div>
@@ -229,7 +256,7 @@ export default function LandingPage({ onExplore, onLoginClick }) {
           <div className="bento-climate-content">
             {/* SVG del Mapa de Colombia Poligonal 3D en verde brillante */}
             <div className="colombia-map-svg-wrap">
-              <svg viewBox="0 0 200 240" className="colombia-map-svg" width="100" height="120">
+              <svg viewBox="0 0 200 240" className="colombia-map-svg" width="160" height="192">
                 {/* Definiciones de gradientes poligonales */}
                 <defs>
                   <linearGradient id="poly1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -390,6 +417,7 @@ export default function LandingPage({ onExplore, onLoginClick }) {
           <span>🇨🇴 Hecho en Colombia</span>
         </div>
       </footer>
+    </div>
     </div>
   );
 }

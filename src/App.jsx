@@ -162,11 +162,16 @@ function AppShell() {
 // ─── Landing wrapper ──────────────────────────────────────────────────────────
 function LandingWithNav() {
   const navigate = useNavigate();
+  const setSelectedCropId = useAgroStore((state) => state.setSelectedCropId);
 
   const handleExplore = () => navigate('/dashboard');
   const handleLoginClick = () => navigate('/login');
+  const handleCropSelect = (cropId) => {
+    setSelectedCropId(cropId);
+    navigate('/dashboard');
+  };
 
-  return <LandingPage onExplore={handleExplore} onLoginClick={handleLoginClick} />;
+  return <LandingPage onExplore={handleExplore} onLoginClick={handleLoginClick} onCropSelect={handleCropSelect} />;
 }
 
 // ─── Root App ─────────────────────────────────────────────────────────────────

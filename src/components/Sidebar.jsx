@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Sidebar.css';
 
 const menuItems = [
@@ -14,6 +15,7 @@ const menuItems = [
 
 export default function Sidebar({ activeTab, setActiveTab, onBrandClick, onLogout, userProfile }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleNav = (id) => {
     setActiveTab(id);
@@ -63,7 +65,11 @@ export default function Sidebar({ activeTab, setActiveTab, onBrandClick, onLogou
 
       {/* Footer */}
       <div className="sidebar-footer">
-        <button className="menu-item landing-btn" onClick={onLogout}>
+        <button className="menu-item landing-btn" onClick={() => navigate('/')}>
+          <span className="menu-icon">🏠</span>
+          <span className="menu-label">Ir al Inicio</span>
+        </button>
+        <button className="menu-item logout-btn" onClick={onLogout}>
           <span className="menu-icon">🚪</span>
           <span className="menu-label">Cerrar sesión</span>
         </button>

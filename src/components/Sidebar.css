@@ -153,7 +153,11 @@
   border-top: 1px solid var(--border-color);
 }
 
-.landing-btn { color: var(--text-muted); font-size: 0.78rem; }
+.landing-btn { color: var(--primary); font-size: 0.82rem; }
+.landing-btn:hover { background: rgba(70,180,100,0.08) !important; color: var(--primary-light) !important; }
+
+.logout-btn { color: var(--text-muted); font-size: 0.82rem; }
+.logout-btn:hover { background: rgba(239,68,68,0.08) !important; color: #ef4444 !important; }
 
 .user-profile-card {
   display: flex;
