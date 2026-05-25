@@ -22,12 +22,12 @@ export default function LandingPage({ onExplore, onLoginClick }) {
   };
 
   const cultivosColombianos = [
-    { name: 'Café', img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=180&auto=format&fit=crop&q=80' },
+    { name: 'Café', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=180&auto=format&fit=crop&q=80' },
     { name: 'Tomate', img: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=180&auto=format&fit=crop&q=80' },
-    { name: 'Aguacate', img: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=180&auto=format&fit=crop&q=80' },
-    { name: 'Maíz', img: 'https://images.unsplash.com/photo-1551754655-cd27e38d20f6?w=180&auto=format&fit=crop&q=80' },
+    { name: 'Aguacate', img: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=180&auto=format&fit=crop&q=80' },
+    { name: 'Maíz', img: 'https://images.unsplash.com/photo-1530071122408-db529f8a31c3?w=180&auto=format&fit=crop&q=80' },
     { name: 'Papa', img: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=180&auto=format&fit=crop&q=80' },
-    { name: 'Cacao', img: 'https://images.unsplash.com/photo-1587132137056-bfbf0166836e?w=180&auto=format&fit=crop&q=80' },
+    { name: 'Cacao', img: 'https://images.unsplash.com/photo-1587132137056-bfbf0166836e?w=180&auto=format&fit=crop&amp;q=80' },
     { name: 'Arroz', img: 'https://images.unsplash.com/photo-1536657464919-892534f60d6e?w=180&auto=format&fit=crop&q=80' }
   ];
 
@@ -50,7 +50,7 @@ export default function LandingPage({ onExplore, onLoginClick }) {
 
   return (
     <div className="landing-container animate-fade">
-      {/* ─── HEADER ─── */}
+      {/* ─── HEADER (Solo logo + menú hamburguesa general) ─── */}
       <header className="landing-header">
         <div className="landing-brand" onClick={() => handleScrollTo('inicio')}>
           <div className="brand-logo-leaf">
@@ -67,22 +67,10 @@ export default function LandingPage({ onExplore, onLoginClick }) {
           </div>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="desktop-nav-menu">
-          <button onClick={() => handleScrollTo('beneficios')} className="nav-link">Beneficios</button>
-        </nav>
-        
-        {/* Desktop Auth Actions */}
-        <div className="desktop-auth-actions">
-          <button className="auth-btn-login" onClick={handleLoginClick}>
-            <span className="user-icon">👤</span> Iniciar sesión
-          </button>
-        </div>
-
-        {/* Mobile menu toggle */}
-        <div className="landing-nav-mobile">
-          <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
-            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2.5" fill="none">
+        {/* Único menú de navegación (Hamburguesa para todo tamaño de pantalla) */}
+        <div className="landing-nav-general">
+          <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu" aria-expanded={isMenuOpen}>
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2.5" fill="none">
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -107,8 +95,8 @@ export default function LandingPage({ onExplore, onLoginClick }) {
 
       {/* ─── HERO SECTION ─── */}
       <section className="hero-section" id="inicio">
-        {/* Left Column: Promotion Info */}
-        <div className="hero-left-card">
+        {/* Left Column: Promotion Info (Fondo de planta de fondo) */}
+        <div className="hero-left-card" style={{ backgroundImage: `linear-gradient(rgba(5, 11, 7, 0.78), rgba(5, 11, 7, 0.92)), url('${agroBg}')` }}>
           <div className="hero-badge">
             <span className="leaf-badge-icon">🌿</span>
             <span>Tecnología agrícola inteligente</span>
@@ -168,10 +156,10 @@ export default function LandingPage({ onExplore, onLoginClick }) {
           </div>
         </div>
 
-        {/* Right Column: Premium Smartphone Showcase */}
+        {/* Right Column: Premium Smartphone Showcase (Campesino + Celular) */}
         <div className="hero-right-card-premium">
-          {/* Imagen de fondo nativa (Campesino + Celular) */}
-          <img src={agroBg} alt="Campesino y celular AgroSmart" className="hero-right-bg-image" />
+          {/* Imagen de fondo nativa (Campesino + Celular cargada de agrosmartHero) */}
+          <img src={agrosmartHero} alt="Campesino y celular AgroSmart" className="hero-right-bg-image" />
           <div className="hero-right-overlay-light"></div>
           
           {/* Floating UI Elements matching the mockup */}
@@ -232,30 +220,59 @@ export default function LandingPage({ onExplore, onLoginClick }) {
           </div>
         </div>
 
-        {/* Bento 2: Climas de Colombia */}
+        {/* Bento 2: Climas de Colombia (Mapa Poligonal Premium) */}
         <div className="bento-card-climate glass-card">
           <div className="bento-climate-text">
             <h3 className="bento-climate-title">Adaptado a todos los climas de Colombia</h3>
           </div>
           
           <div className="bento-climate-content">
-            {/* SVG del Mapa de Colombia en verde brillante */}
+            {/* SVG del Mapa de Colombia Poligonal 3D en verde brillante */}
             <div className="colombia-map-svg-wrap">
-              <svg viewBox="0 0 200 240" className="colombia-map-svg" width="90" height="110">
-                <path 
-                  d="M95 10 C100 20, 110 25, 115 15 C120 5, 130 10, 132 22 C134 34, 145 42, 140 50 C135 58, 148 68, 143 78 C138 88, 155 95, 158 108 C161 121, 185 130, 178 145 C171 160, 182 178, 170 190 C158 202, 145 198, 138 215 C131 232, 115 235, 105 220 C95 205, 82 220, 72 210 C62 200, 52 205, 48 190 C44 175, 28 178, 32 160 C36 142, 22 135, 30 120 C38 105, 45 112, 52 98 C59 84, 52 75, 62 62 C72 49, 78 52, 82 38 C86 24, 90 20, 95 10 Z" 
-                  fill="none" 
-                  stroke="#46b464" 
-                  strokeWidth="2.5" 
-                  strokeLinejoin="round" 
-                />
-                <path 
-                  d="M95 10 C100 20, 110 25, 115 15 C120 5, 130 10, 132 22 C134 34, 145 42, 140 50 C135 58, 148 68, 143 78 C138 88, 155 95, 158 108 C161 121, 185 130, 178 145 C171 160, 182 178, 170 190 C158 202, 145 198, 138 215 C131 232, 115 235, 105 220 C95 205, 82 220, 72 210 C62 200, 52 205, 48 190 C44 175, 28 178, 32 160 C36 142, 22 135, 30 120 C38 105, 45 112, 52 98 C59 84, 52 75, 62 62 C72 49, 78 52, 82 38 C86 24, 90 20, 95 10 Z" 
-                  fill="#46b464" 
-                  opacity="0.15" 
-                />
-                <circle cx="110" cy="90" r="4" fill="#46b464" />
-                <circle cx="110" cy="90" r="10" stroke="#46b464" strokeWidth="1" fill="none" opacity="0.5" />
+              <svg viewBox="0 0 200 240" className="colombia-map-svg" width="100" height="120">
+                {/* Definiciones de gradientes poligonales */}
+                <defs>
+                  <linearGradient id="poly1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#46b464" />
+                    <stop offset="100%" stopColor="#2e7d32" />
+                  </linearGradient>
+                  <linearGradient id="poly2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#81c784" />
+                    <stop offset="100%" stopColor="#388e3c" />
+                  </linearGradient>
+                  <linearGradient id="poly3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#a5d6a7" />
+                    <stop offset="100%" stopColor="#4caf50" />
+                  </linearGradient>
+                  <linearGradient id="poly4" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#2e7d32" />
+                    <stop offset="100%" stopColor="#1b5e20" />
+                  </linearGradient>
+                </defs>
+                {/* Dibujo poligonal del mapa */}
+                {/* Norte */}
+                <polygon points="90,10 110,12 115,25 95,28 90,10" fill="url(#poly2)" stroke="#2e7d32" strokeWidth="0.5" />
+                <polygon points="110,12 135,14 130,30 115,25 110,12" fill="url(#poly1)" stroke="#2e7d32" strokeWidth="0.5" />
+                {/* Región Caribe */}
+                <polygon points="95,28 115,25 125,50 90,48 95,28" fill="url(#poly3)" stroke="#2e7d32" strokeWidth="0.5" />
+                <polygon points="115,25 130,30 142,42 125,50 115,25" fill="url(#poly4)" stroke="#2e7d32" strokeWidth="0.5" />
+                <polygon points="125,50 142,42 148,65 120,68 125,50" fill="url(#poly1)" stroke="#2e7d32" strokeWidth="0.5" />
+                {/* Centro / Andina */}
+                <polygon points="90,48 120,68 105,100 75,80 90,48" fill="url(#poly2)" stroke="#2e7d32" strokeWidth="0.5" />
+                <polygon points="120,68 148,65 140,95 105,100 120,68" fill="url(#poly3)" stroke="#2e7d32" strokeWidth="0.5" />
+                <polygon points="105,100 140,95 158,115 112,130 105,100" fill="url(#poly1)" stroke="#2e7d32" strokeWidth="0.5" />
+                {/* Suroccidente */}
+                <polygon points="75,80 105,100 88,140 50,120 75,80" fill="url(#poly4)" stroke="#2e7d32" strokeWidth="0.5" />
+                <polygon points="50,120 88,140 70,180 42,160 50,120" fill="url(#poly2)" stroke="#2e7d32" strokeWidth="0.5" />
+                <polygon points="42,160 70,180 58,210 32,190 42,160" fill="url(#poly3)" stroke="#2e7d32" strokeWidth="0.5" />
+                {/* Sur / Amazonía */}
+                <polygon points="88,140 112,130 135,160 100,185 88,140" fill="url(#poly1)" stroke="#2e7d32" strokeWidth="0.5" />
+                <polygon points="100,185 135,160 152,190 115,220 100,185" fill="url(#poly4)" stroke="#2e7d32" strokeWidth="0.5" />
+                <polygon points="115,220 152,190 172,212 135,230 115,220" fill="url(#poly2)" stroke="#2e7d32" strokeWidth="0.5" />
+                <polygon points="70,180 100,185 115,220 72,210 70,180" fill="url(#poly3)" stroke="#2e7d32" strokeWidth="0.5" />
+                {/* Orinoquía */}
+                <polygon points="112,130 158,115 180,140 135,160 112,130" fill="url(#poly3)" stroke="#2e7d32" strokeWidth="0.5" />
+                <polygon points="135,160 180,140 175,178 152,190 135,160" fill="url(#poly1)" stroke="#2e7d32" strokeWidth="0.5" />
               </svg>
             </div>
 
