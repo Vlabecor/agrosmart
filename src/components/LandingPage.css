@@ -1065,6 +1065,12 @@
   .bento-card-crop {
     grid-column: span 1;
   }
+  .bento-card-climate {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    align-items: flex-start;
+  }
   .contact-container-premium {
     grid-template-columns: 1fr;
     padding: 1.75rem;
@@ -1088,6 +1094,22 @@
   }
   .bento-crops-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .bento-card-climate {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  .bento-climate-title {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+  .bento-climates-row {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+  .colombia-map-svg-wrap {
+    align-self: flex-start;
   }
   .bento-card-iot-banner {
     flex-direction: column;
