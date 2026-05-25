@@ -1,16 +1,22 @@
-# React + Vite
+# 🌿 AgroSmart — Inteligencia al Servicio del Campo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AgroSmart es una plataforma premium de agricultura de precisión diseñada específicamente para optimizar el uso del agua y maximizar la productividad agrícola en los diversos microclimas de Colombia.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Características Principales
 
-## React Compiler
+- **📊 Monitoreo IoT en Tiempo Real**: Visualización en vivo de humedad del suelo, temperatura ambiente y estado del sensor.
+- **📡 Conectividad Inteligente con ESP32**: Nodos inalámbricos autónomos con tecnología WiFi, Bluetooth y alimentación mediante **Panel Solar**.
+- **🇨🇴 Adaptado a Cultivos Colombianos**: Algoritmos y umbrales calibrados para Café, Tomate, Aguacate, Maíz, Papa, Banano, Cacao y Flores.
+- **🔔 Centro de Alertas**: Notificaciones críticas inmediatas en tiempo real ante niveles anómalos de humedad o temperatura.
+- **📈 Historial y Reportes**: Registro histórico de riegos, consumo de agua y exportación de reportes premium listos para certificación.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologías Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React 18, Vite, React Router Dom
+- **Estilos**: Vanilla CSS con diseño premium interactivo (Glassmorphism, gradientes HSL y microanimaciones suaves)
+- **Mapas**: Integración con Leaflet para la geolocalización de sensores en tiempo real
+- **Despliegue**: GitHub Actions & GitHub Pages
