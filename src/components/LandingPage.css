@@ -1053,6 +1053,9 @@
     grid-template-columns: 1fr;
     min-height: auto;
   }
+  .hero-right-content {
+    display: none; /* Ocultar para evitar solapamiento de botones de humedad en móvil */
+  }
   .hero-right-card-premium {
     min-height: 420px;
   }
@@ -1085,6 +1088,20 @@
   }
   .bento-crops-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .iot-banner-content {
+    padding: 1.5rem; /* Ajustar padding en móviles para que no se corran los textos */
+    gap: 0.8rem;
+  }
+  .iot-banner-title {
+    font-size: 1.5rem; /* Título un poco más pequeño en móvil */
+  }
+  .iot-banner-desc {
+    font-size: 0.85rem;
+  }
+  .iot-banner-cta {
+    width: 100%;
+    justify-content: center;
   }
 }
 
