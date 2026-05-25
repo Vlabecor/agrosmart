@@ -1101,7 +1101,7 @@
   }
   .iot-banner-bg-img {
     object-fit: contain;
-    object-position: center; /* Centrar la imagen pequeña */
+    object-position: left center; /* Alinear imagen a la izquierda */
   }
   .iot-banner-overlay {
     display: none; /* No se necesita degradado si el texto no está sobre la imagen */
@@ -1119,7 +1119,7 @@
   }
   .iot-banner-cta {
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start; /* Botón alineado a la izquierda */
   }
 }
 
