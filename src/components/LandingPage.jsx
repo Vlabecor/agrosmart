@@ -186,8 +186,8 @@ export default function LandingPage({ onExplore, onLoginClick, onCropSelect }) {
         {/* Right Column: Premium Smartphone Showcase (Campesino + Celular) */}
         <div className="hero-right-card-premium">
           {/* Imagen de fondo nativa (Campesino + Celular cargada de agrosmartHero) */}
-          <img src={agrosmartHero} alt="Campesino y celular AgroSmart" className="hero-right-bg-image" />
-          <div className="hero-right-overlay-light"></div>
+          {/* <img src={agrosmartHero} alt="Campesino y celular AgroSmart" className="hero-right-bg-image" /> */}
+          {/* <div className="hero-right-overlay-light"></div> */}
           
           {/* Floating UI Elements matching the mockup */}
           <div className="floating-ui-container">
