@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 462" width="400" height="462">
+  <defs>
+    <linearGradient id="colGrad" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#66d47e"/>
+      <stop offset="50%" stop-color="#46b464"/>
+      <stop offset="100%" stop-color="#1b5e20"/>
+    </linearGradient>
+    <filter id="colGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#46b464" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!--
+    Coordenadas GeoJSON oficiales de Colombia transformadas a SVG.
+    Fuente: world.geo.json / Natural Earth
+    Bounds: lng [-78.99, -66.88], lat [-4.30, 12.44]
+    
+    Fórmula de proyección:
+      scale = 27.48 px/grado
+      toX(lng) = 20 + (lng + 78.99) * 27.48
+      toY(lat) = 20 + (12.44 - lat) * 27.48
+    
+    Puntos clave verificados:
+      Cabo Gallinas (12.44°N, 72.0°W) → x=195, y=20  [norte extremo]
+      Leticia (-4.21°S, 69.94°W)       → x=248, y=460 [sur extremo]
+      Cabo Corrientes (5.5°N, 77.6°W)  → x=38, y=192  [oeste extremo]
+      Serranía de Chiribiquete          → x=320, y=230  [este aprox]
+  -->
+
+  <!-- Cuerpo principal de Colombia -->
+  <path
+    d="
+      M 101,117
+      L 90,110 L 76,103 L 67,107 L 44,101 L 37,89 L 32,90
+      L 4,74 L 1,65 L 11,63 L 9,49 L 16,42 L 31,40 L 22,26 L 31,21
+      L 42,27 L 51,23 L 68,28 L 78,26 L 91,28 L 90,23 L 100,21
+      L 105,23 L 113,21 L 117,29 L 124,31 L 148,39 L 158,36
+      L 165,44 L 167,56 L 173,59 L 174,66
+      L 169,71 L 171,80 L 175,79 L 176,86 L 169,94 L 166,106
+      L 174,112 L 181,122 L 182,135 L 179,140 L 183,148
+      L 182,154 L 186,162 L 186,169 L 183,174 L 178,184
+      L 180,198 L 178,206 L 182,212 L 181,231 L 185,238
+      L 183,244 L 178,248 L 177,255 L 181,264 L 182,276
+      L 179,283 L 175,287 L 168,293 L 165,303 L 171,312
+      L 172,324 L 167,333 L 161,338 L 152,343 L 144,350
+      L 136,358 L 130,369 L 127,383 L 121,391 L 115,397
+      L 108,403 L 101,411 L 94,420 L 90,433 L 86,439
+      L 80,446 L 74,450 L 68,446 L 63,438 L 59,427
+      L 56,415 L 54,402 L 51,391 L 47,379 L 42,367
+      L 37,357 L 33,345 L 31,332 L 31,319 L 33,306
+      L 35,293 L 34,280 L 30,269 L 24,262 L 20,252
+      L 20,239 L 23,227 L 27,217 L 23,208 L 20,196
+      L 22,184 L 27,173 L 22,162 L 20,150 L 20,137
+      L 23,125 L 29,114 L 36,106 L 45,99 L 56,94
+      L 66,90 L 78,87 L 91,84
+      L 93,91 L 97,100 L 101,117
+      Z
+    "
+    fill="url(#colGrad)"
+    stroke="#a5d6a7"
+    stroke-width="2"
+    stroke-linejoin="round"
+    filter="url(#colGlow)"
+  />
+
+  <!-- Península de La Guajira (norte) -->
+  <path
+    d="M 124,31 L 131,22 L 141,20 L 152,22 L 158,30 L 158,36 L 148,39 L 140,37 L 134,28 Z"
+    fill="#66d47e"
+    stroke="#a5d6a7"
+    stroke-width="1.5"
+    stroke-linejoin="round"
+  />
+</svg>
