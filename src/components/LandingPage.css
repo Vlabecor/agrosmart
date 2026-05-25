@@ -1090,7 +1090,7 @@
     grid-template-columns: repeat(3, 1fr);
   }
   .iot-banner-bg-img {
-    object-position: right center; /* Anclar la imagen a la derecha en móviles para no cortar el ESP32 */
+    object-position: left center; /* Anclar la imagen a la izquierda en móviles según lo solicitado */
   }
   .iot-banner-overlay {
     /* Gradiente ligeramente más oscuro en móvil para que contraste con el texto si ocupa todo el ancho */
