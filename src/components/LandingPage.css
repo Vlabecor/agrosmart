@@ -1089,6 +1089,19 @@
   .bento-crops-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .iot-banner-bg-img {
+    object-position: right center; /* Anclar la imagen a la derecha en móviles para no cortar el ESP32 */
+  }
+  .iot-banner-overlay {
+    /* Gradiente ligeramente más oscuro en móvil para que contraste con el texto si ocupa todo el ancho */
+    background: linear-gradient(
+      120deg,
+      rgba(2, 8, 4, 0.95) 0%,
+      rgba(2, 8, 4, 0.85) 45%,
+      rgba(2, 8, 4, 0.40) 80%,
+      rgba(2, 8, 4, 0.20) 100%
+    );
+  }
   .iot-banner-content {
     padding: 1.5rem; /* Ajustar padding en móviles para que no se corran los textos */
     gap: 0.8rem;
