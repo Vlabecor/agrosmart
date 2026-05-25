@@ -69,11 +69,7 @@ export default function LandingPage({ onExplore, onLoginClick }) {
 
         {/* Desktop Navigation */}
         <nav className="desktop-nav-menu">
-          <button onClick={() => handleScrollTo('inicio')} className="nav-link">Inicio</button>
-          <button onClick={() => handleScrollTo('funciones')} className="nav-link">Funciones</button>
-          <button onClick={() => handleScrollTo('cultivos')} className="nav-link">Cultivos</button>
           <button onClick={() => handleScrollTo('beneficios')} className="nav-link">Beneficios</button>
-          <button onClick={() => handleScrollTo('contacto')} className="nav-link">Contacto</button>
         </nav>
         
         {/* Desktop Auth Actions */}
@@ -132,7 +128,7 @@ export default function LandingPage({ onExplore, onLoginClick }) {
 
           <div className="hero-buttons">
             <button className="btn btn-primary" onClick={handleLoginClick}>
-              <span className="btn-leaf-icon">🌿</span> Comienza gratis <span className="btn-arrow">→</span>
+              <span className="btn-leaf-icon">🌿</span> monitorea tu cultivo <span className="btn-arrow">→</span>
             </button>
             <button className="btn btn-secondary-play" onClick={handleExplore}>
               <span className="play-icon">▶</span> Ver cómo funciona
