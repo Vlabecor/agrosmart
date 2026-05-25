@@ -22,14 +22,14 @@ export default function LandingPage({ onExplore, onLoginClick, onCropSelect }) {
   };
 
   const cultivosColombianos = [
-    { id: 'cafe',     name: 'Café',     img: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=300&auto=format&fit=crop&q=80' },
+    { id: 'cafe',     name: 'Café',     img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&auto=format&fit=crop&q=80' },
     { id: 'tomate',   name: 'Tomate',   img: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300&auto=format&fit=crop&q=80' },
-    { id: 'aguacate', name: 'Aguacate', img: 'https://images.unsplash.com/photo-1560906446-da7c9cdf4eec?w=300&auto=format&fit=crop&q=80' },
-    { id: 'maiz',     name: 'Maíz',     img: 'https://images.unsplash.com/photo-1601593767086-bb5ee3b5a1d6?w=300&auto=format&fit=crop&q=80' },
+    { id: 'aguacate', name: 'Aguacate', img: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=300&auto=format&fit=crop&q=80' },
+    { id: 'maiz',     name: 'Maíz',     img: 'https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=300&auto=format&fit=crop&q=80' },
     { id: 'papa',     name: 'Papa',     img: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=300&auto=format&fit=crop&q=80' },
-    { id: 'banana',   name: 'Banano',   img: 'https://images.unsplash.com/photo-1551906994-efb6e9b54ebb?w=300&auto=format&fit=crop&q=80' },
-    { id: 'cacao',    name: 'Cacao',    img: 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=300&auto=format&fit=crop&q=80' },
-    { id: 'arroz',    name: 'Arroz',    img: 'https://images.unsplash.com/photo-1589361242929-0e8b3d0efc58?w=300&auto=format&fit=crop&q=80' }
+    { id: 'banana',   name: 'Banano',   img: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=300&auto=format&fit=crop&q=80' },
+    { id: 'cacao',    name: 'Cacao',    img: 'https://images.unsplash.com/photo-1542856391-010fb87dcfed?w=300&auto=format&fit=crop&q=80' },
+    { id: 'arroz',    name: 'Arroz',    img: 'https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?w=300&auto=format&fit=crop&q=80' }
   ];
 
   const climasColombia = [
